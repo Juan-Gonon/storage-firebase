@@ -1,4 +1,4 @@
-import { addDoc, collection } from 'firebase/firestore'
+import { addDoc, collection, doc, updateDoc } from 'firebase/firestore'
 import { db } from '../api/firebase.config'
 import { getDownloadURL, getStorage, ref, uploadBytes } from 'firebase/storage'
 
@@ -21,4 +21,8 @@ export const uploadImgStorage = async ({ id, file }) => {
   await uploadBytes(nameImg, file)
   const url = await getDownloadURL(nameImg)
   return url
+}
+
+export const editUrlImg = async ({ id, url }) => {
+  await updateDoc(doc(db, 'Products', id, { icono: url }))
 }
