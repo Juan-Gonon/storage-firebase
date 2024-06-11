@@ -1,10 +1,9 @@
 import './App.css'
 
-function App() {
-
+function App () {
   return (
     <>
-    <h1>Firebase Storage</h1>
+      <h1>Firebase Storage</h1>
     </>
   )
 }
