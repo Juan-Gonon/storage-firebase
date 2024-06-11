@@ -1,9 +1,9 @@
-import './App.css'
+import { MyRoutes } from './routers/routes'
 
 function App () {
   return (
     <>
-      <h1>Firebase Storage</h1>
+      <MyRoutes />
     </>
   )
 }
