@@ -39,10 +39,8 @@ export const useFileImage = ({ sinfoto }) => {
       setStateImage(false)
       const product = { ...data, icono: '-' }
       const id = await insertProducts({ product })
-      console.log(id)
       const url = await uploadImgStorage({ id, file })
       await editUrlImg({ id, url })
-      console.log('final')
       Swal.fire({
         title: 'Good job!',
         text: 'You clicked the button!',

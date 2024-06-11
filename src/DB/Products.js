@@ -1,4 +1,4 @@
-import { addDoc, collection, doc, updateDoc } from 'firebase/firestore'
+import { addDoc, collection, doc, getDoc, query, updateDoc, where } from 'firebase/firestore'
 import { db } from '../api/firebase.config'
 import { getDownloadURL, getStorage, ref, uploadBytes } from 'firebase/storage'
 
@@ -25,4 +25,20 @@ export const uploadImgStorage = async ({ id, file }) => {
 export const editUrlImg = async ({ id, url }) => {
   console.log(url)
   await updateDoc(doc(db, 'Products', id), { icono: url })
+}
+
+export const repeatedData = async ({ product }) => {
+  try {
+    const res = []
+    const q = query(conexion, where('descripcion', '==', product.descripcion))
+    const queryConsult = await getDoc(q)
+
+    queryConsult.forEach((element) => {
+      res.push(element.data())
+    })
+
+    return res.length
+  } catch (error) {
+    console.log(error)
+  }
 }
