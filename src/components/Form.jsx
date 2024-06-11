@@ -1,21 +1,56 @@
 import styled from 'styled-components'
 import { BtnOpe } from './BtnOpe'
+import { useForm } from 'react-hook-form'
 
 export const Formulario = () => {
+  const { reset, register, handleSubmit, formState: { errors } } = useForm()
+
+  const handleSubmitForm = (data) => {
+    reset()
+  }
+
   return (
     <>
-      <form>
+      <form onSubmit={handleSubmit(handleSubmitForm)}>
         <ContainerInputs>
           <div className='sub__container'>
             <h4 className='title'>Descripción: </h4>
-            <Inputs placeholder='Ingrese un precio' />
+            <Inputs
+              placeholder='Ingrese un descripción'
+              {...register('descripcion', { required: true, maxLength: 30 })}
+            />
           </div>
+          <p>
+            {
+              errors.descripcion?.type === 'required'
+                ? 'Necesita una descripción'
+                : errors.descripcion?.type === 'maxLength'
+                  ? 'Solo se aceptan 20 caracteres'
+                  : ''
+
+            }
+          </p>
         </ContainerInputs>
         <ContainerInputs>
           <div className='sub__container'>
             <h4 className='title'>Precio: </h4>
-            <Inputs placeholder='Ingrese un precio' />
+            <Inputs
+              step='0.01'
+              type='number'
+              placeholder='Ingrese un precio'
+              {...register('precio', { required: true, valueAsNumber: true })}
+            />
           </div>
+          <p>
+            {
+              errors.precio?.type === 'required'
+                ? 'Ingrese por favor un precio'
+                : errors.precio?.type === 'valueAsNumber'
+                  ? 'El valor ingresado no es un número'
+                  : ''
+
+            }
+          </p>
         </ContainerInputs>
         <div className='entradas'>
           <BtnOpe titulo='Cargar Imagen' />
@@ -41,6 +76,13 @@ const ContainerInputs = styled.section`
         .title{
           width: 100px;
         }
+    }
+    p{
+      width: 100%;
+      height: 3px;
+      text-align: center;
+      color: red;
+      font-size: 12px;
     }
 `
 

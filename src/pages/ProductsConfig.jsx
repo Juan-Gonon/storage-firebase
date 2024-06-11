@@ -1,8 +1,9 @@
+import { useRef } from 'react'
+import { useForm } from 'react-hook-form'
 import styled from 'styled-components'
 import sinfoto from '../assets/sinfoto_.png'
 import { BtnOpe } from '../components/BtnOpe'
 import { FaImage } from 'react-icons/fa6'
-import { useRef } from 'react'
 import { Formulario } from '../components/Form'
 
 export const ProductsConfig = () => {
