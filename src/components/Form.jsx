@@ -8,7 +8,7 @@ export const Formulario = ({ stateFormImage }) => {
   const { reset, register, handleSubmit, formState: { errors } } = useForm()
 
   const handleSubmitForm = (data) => {
-    // reset()
+    reset()
     stateFormImage()
   }
 
