@@ -55,7 +55,7 @@ export const useFileImage = ({ sinfoto }) => {
         await editUrlImg({ id, url })
         Swal.fire({
           title: 'Good job!',
-          text: 'You clicked the button!',
+          text: 'Correctly aggregated product!',
           icon: 'success'
         })
       } else {
