@@ -1,5 +1,6 @@
 import { useState } from 'react'
-import { editUrlImg, insertProducts } from '../DB/Products'
+import { editUrlImg, insertProducts, uploadImgStorage } from '../DB/Products'
+import Swal from 'sweetalert2'
 
 export const useFileImage = ({ sinfoto }) => {
   const [fileUrl, setFileUrl] = useState(sinfoto)
@@ -33,14 +34,20 @@ export const useFileImage = ({ sinfoto }) => {
 
   const stateFormImage = async ({ data }) => {
     const img = file.length
-    console.log(data)
-    console.log(img)
+
     if (img !== 0) {
       setStateImage(false)
       const product = { ...data, icono: '-' }
       const id = await insertProducts({ product })
-      const url = await uploadImageStorage({ id, file })
+      console.log(id)
+      const url = await uploadImgStorage({ id, file })
       await editUrlImg({ id, url })
+      console.log('final')
+      Swal.fire({
+        title: 'Good job!',
+        text: 'You clicked the button!',
+        icon: 'success'
+      })
     } else {
       setStateImage(true)
     }

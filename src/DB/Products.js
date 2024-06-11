@@ -8,7 +8,6 @@ export const insertProducts = async ({ product }) => {
   try {
     const data = await addDoc(conexion, product)
     const id = data.id
-    console.log(data)
     return id
   } catch (error) {
     console.log(error.message)
@@ -24,5 +23,6 @@ export const uploadImgStorage = async ({ id, file }) => {
 }
 
 export const editUrlImg = async ({ id, url }) => {
-  await updateDoc(doc(db, 'Products', id, { icono: url }))
+  console.log(url)
+  await updateDoc(doc(db, 'Products', id), { icono: url })
 }
