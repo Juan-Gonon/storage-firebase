@@ -19,6 +19,7 @@ export const useFileImage = ({ sinfoto }) => {
     if (fileReaderLocal && fileLocal && fileLocal.length) {
       fileReaderLocal.onload = function load () {
         setFileUrl(fileReaderLocal.result)
+        setStateImage(false)
       }
 
       // preparar img para el storage
@@ -65,6 +66,7 @@ export const useFileImage = ({ sinfoto }) => {
     } finally {
       setIsLoading(false)
       setFileUrl(sinfoto)
+      setFile([])
     }
   }
 

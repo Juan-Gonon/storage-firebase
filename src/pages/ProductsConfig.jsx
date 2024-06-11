@@ -5,10 +5,11 @@ import { BtnOpe } from '../components/BtnOpe'
 import { FaImage } from 'react-icons/fa6'
 import { Formulario } from '../components/Form'
 import { useFileImage } from '../hook/useFileImage'
+import { Spinner } from '../components/Spinner'
 
 export const ProductsConfig = () => {
   const ref = useRef(null)
-  const { fileUrl, uploadImageStorage, stateImage, stateFormImage } = useFileImage({ sinfoto })
+  const { fileUrl, uploadImageStorage, stateImage, stateFormImage, isLoading } = useFileImage({ sinfoto })
 
   const openImage = () => {
     ref.current.click()
@@ -17,6 +18,9 @@ export const ProductsConfig = () => {
   return (
     <Container>
       <div className='sub__contenedor'>
+        {
+          isLoading && !stateImage ? <Spinner /> : ''
+        }
         <div className='header'>
           <h1>Registro de productos 📤  </h1>
         </div>
@@ -26,7 +30,7 @@ export const ProductsConfig = () => {
           <input type='file' ref={ref} accept='image/png' onChange={uploadImageStorage} />
           <p>
             {
-              stateImage && 'Seleccione una imagen'
+              stateImage ? 'Seleccione una imagen' : ''
             }
           </p>
         </div>
