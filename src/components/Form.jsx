@@ -2,11 +2,13 @@ import styled from 'styled-components'
 import { BtnOpe } from './BtnOpe'
 import { useForm } from 'react-hook-form'
 
-export const Formulario = () => {
+// eslint-disable-next-line react/prop-types
+export const Formulario = ({ stateFormImage }) => {
   const { reset, register, handleSubmit, formState: { errors } } = useForm()
 
   const handleSubmitForm = (data) => {
-    reset()
+    // reset()
+    stateFormImage()
   }
 
   return (
@@ -53,7 +55,7 @@ export const Formulario = () => {
           </p>
         </ContainerInputs>
         <div className='entradas'>
-          <BtnOpe titulo='Cargar Imagen' />
+          <BtnOpe titulo='enviar' />
         </div>
       </form>
     </>
