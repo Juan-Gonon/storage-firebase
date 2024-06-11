@@ -1,5 +1,4 @@
 import { MyRoutes } from './routers/routes'
-import './App.css'
 
 function App () {
   return (

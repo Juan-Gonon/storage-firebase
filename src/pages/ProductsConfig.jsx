@@ -26,4 +26,16 @@ const Container = styled.section`
   width: 100%;
   height: 100%;
   background-color: aqua;
+
+  .sub__contenedor{
+    .header{
+      
+    }
+    .picture__container{
+      img{
+        width: 100px;
+        object-fit: cover;
+      }
+    }
+  }
 `
