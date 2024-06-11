@@ -1,5 +1,4 @@
-import { useRef } from 'react'
-import { useForm } from 'react-hook-form'
+import { useRef, useState } from 'react'
 import styled from 'styled-components'
 import sinfoto from '../assets/sinfoto_.png'
 import { BtnOpe } from '../components/BtnOpe'
@@ -8,9 +7,25 @@ import { Formulario } from '../components/Form'
 
 export const ProductsConfig = () => {
   const ref = useRef(null)
+  const [fileUrl, setFileUrl] = useState('')
 
   const openImage = () => {
     ref.current.click()
+  }
+
+  const uploadImageStorage = (e) => {
+    // carga local
+    const fileLocal = e.target.file
+    const fileReaderLocal = new FileReader()
+    fileReaderLocal.readAsDataURL(fileLocal[0])
+    const typeImage = e.target.file[0]
+
+    if (!typeImage.type.includes('image/png')) return null
+    if (fileReaderLocal && fileLocal && fileLocal.length) {
+      fileReaderLocal.onload = function load () {
+        setFileUrl(fileReaderLocal.result)
+      }
+    }
   }
 
   return (
