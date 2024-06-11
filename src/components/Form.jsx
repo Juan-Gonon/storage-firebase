@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import { BtnOpe } from './BtnOpe'
 import { useForm } from 'react-hook-form'
+import { IoIosSend } from 'react-icons/io'
 
 // eslint-disable-next-line react/prop-types
 export const Formulario = ({ stateFormImage }) => {
@@ -55,7 +56,7 @@ export const Formulario = ({ stateFormImage }) => {
           </p>
         </ContainerInputs>
         <div className='entradas'>
-          <BtnOpe titulo='enviar' />
+          <BtnOpe titulo='enviar' icono={<IoIosSend />} />
         </div>
       </form>
     </>

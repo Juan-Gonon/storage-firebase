@@ -59,7 +59,11 @@ export const ProductsConfig = () => {
           <img src={fileUrl} alt='' />
           <BtnOpe titulo='Cargar imagen' icono={<FaImage />} handleClick={openImage} />
           <input type='file' ref={ref} accept='image/png' onChange={uploadImageStorage} />
-          {stateImage && <p>Seleccione una imagen</p>}
+          <p>
+            {
+              stateImage && 'Seleccione una imagen'
+            }
+          </p>
         </div>
         <Formulario stateFormImage={stateFormImage} />
       </div>
@@ -102,6 +106,13 @@ const Container = styled.section`
       }
       input[type='file']{
         display: none;
+      }
+      p{
+        color:  red;
+        width: 100%;
+        height: 3px;
+        font-size: 12px;
+        text-align: center;
       }
     }
 
