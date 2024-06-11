@@ -1,5 +1,7 @@
 import styled from 'styled-components'
 import sinfoto from '../assets/sinfoto_.png'
+import { BtnOpe } from '../components/BtnOpe'
+import { FaImage } from 'react-icons/fa6'
 
 export const ProductsConfig = () => {
   return (
@@ -11,6 +13,7 @@ export const ProductsConfig = () => {
         <div className='picture__container'>
           <img src={sinfoto} alt='' />
         </div>
+        <BtnOpe titulo='Cargar imagen' icono={<FaImage />} />
       </div>
     </Container>
   )
@@ -29,7 +32,7 @@ const Container = styled.section`
 
   .sub__contenedor{
     .header{
-      
+
     }
     .picture__container{
       img{
