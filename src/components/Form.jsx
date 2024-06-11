@@ -9,7 +9,7 @@ export const Formulario = ({ stateFormImage }) => {
 
   const handleSubmitForm = (data) => {
     reset()
-    stateFormImage()
+    stateFormImage({ data })
   }
 
   return (
