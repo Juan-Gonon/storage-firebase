@@ -10,8 +10,12 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "firebase": "^10.12.2",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-icons": "^5.2.1",
+    "react-router-dom": "^6.23.1",
+    "styled-components": "^6.1.11"
   },
   "devDependencies": {
     "@types/react": "^18.2.66",
@@ -25,7 +29,7 @@
     "vite": "^5.2.0"
   },
   "eslintConfig": {
-    "extends" : [
+    "extends": [
       "./node_modules/standard/eslintrc.json"
     ]
   }
