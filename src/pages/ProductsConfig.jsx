@@ -3,6 +3,7 @@ import sinfoto from '../assets/sinfoto_.png'
 import { BtnOpe } from '../components/BtnOpe'
 import { FaImage } from 'react-icons/fa6'
 import { useRef } from 'react'
+import { Formulario } from '../components/Form'
 
 export const ProductsConfig = () => {
   const ref = useRef(null)
@@ -22,6 +23,7 @@ export const ProductsConfig = () => {
           <BtnOpe titulo='Cargar imagen' icono={<FaImage />} handleClick={openImage} />
           <input type='file' ref={ref} accept='image/png' />
         </div>
+        <Formulario />
       </div>
     </Container>
   )
@@ -60,9 +62,16 @@ const Container = styled.section`
         width: 100px;
         object-fit: cover;
       }
-      input{
+      input[type='file']{
         display: none;
       }
+    }
+
+    .entradas{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 15px;
     }
   }
 `
